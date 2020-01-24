@@ -1,6 +1,6 @@
 {
   "name": "my-cryptos-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "My Cryptos CLI",
   "main": "dist/bundle.js",
   "author": "Arth K. Gajjar",
