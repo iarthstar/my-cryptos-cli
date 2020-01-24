@@ -14,8 +14,10 @@
     "alias:yarn": "echo 'alias my-cryptos=\"node $(yarn global dir)/node_modules/my-cryptos-cli/dist/bundle.js\"' >> ~/.zshrc",
     "alias:npm": "echo 'alias my-cryptos=\"node $(npm root -g)/my-cryptos-cli/dist/bundle.js\"' >> ~/.zshrc",
     "setup": "yarn global add purescript pulp bower && bower i && yarn build",
-    "build": "pulp build --to dist/bundle.js",
-    "start": "yarn build && node dist/bundle.js --coins=BTC,ETH --currs=USD,INR"
+    "build": "pulp build -O --to dist/bundle.js",
+    "watch": "pulp -w --then 'yarn run run' build -O --to dist/bundle.js",
+    "run": "node dist/bundle.js --coins=BTC,ETH --currs=USD,INR",
+    "start": "yarn build && yarn run run"
   },
   "repository": {
     "type": "git",
