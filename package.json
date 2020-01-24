@@ -1,0 +1,22 @@
+{
+  "name": "my-cryptos-cli",
+  "version": "0.0.1",
+  "description": "My Cryptos CLI",
+  "main": "dist/bundle.js",
+  "author": "Arth K. Gajjar",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "clean": "rm -rf bower_components node_modules output dist .pulp-cache .purs-repl package-lock.json yarn.lock .psc-ide-port",
+    "checkyarn": "echo \"$npm_execpath\" | grep -q \"yarn\\.js$\" || (echo '⚠️  Use yarn not npm! ⚠️ ' && echo && exit 1)",
+    "preinstall": "$npm_execpath --silent run checkyarn",
+    "postinstall": "yarn setup && yarn build",
+    "setup": "yarn global add purescript pulp bower && bower i",
+    "build": "pulp build --to dist/bundle.js",
+    "start": "yarn build && node dist/bundle.js --coins=BTC,ETH --currs=USD,INR"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^3.0.0"
+  }
+}
